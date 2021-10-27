@@ -7,27 +7,12 @@ def loading_data(file):
 
     shares = []
     for row in data:
-        share = ([row['name'], float(row['price']),
-                  float(row['profit']) * float(row['price'])])
+        share = [row['name'], float(row['price']), float(row['profit'])]
         shares.append(share)
 
 
 def knapsack(data):
-    name = []
-
-    #weight
-    price = []
-
-    #value
-    profits = []
-
-    limit = 500
-
-    for share in data:
-        name.append(share[0])
-        price.append(share[1])
-        profits.append(share[2])
-
+    return
 
 
 
