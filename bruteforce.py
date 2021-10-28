@@ -9,17 +9,18 @@ def loading_data(file):
 
     for row in data:
 
-        share = [row['name'], float(row['price']), float(row['profit'])]
+        share = [row['name'], float(row['price']), float(row['price'])
+                 *float(row['profit'])]
         shares.append(share)
         # if len(shares)>3:
         #     break
 
     # print(len(shares))
-    search_best_profit(shares)
+    search_best_profit(shares, 500)
 
 
-def search_best_profit(data):
-    budget_max = 500
+def search_best_profit(data, max_budget):
+    budget_max = max_budget
     best_shares = []
 
     # generating each unique permutation possible
@@ -69,5 +70,7 @@ def display_best(shares, budget):
         total_profit, rendement))
 
 
+# time for 20 shares : 2.54s
 if __name__ == '__main__':
     loading_data('shares.csv')
+
