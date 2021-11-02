@@ -71,7 +71,9 @@ def display_best(shares, budget):
         total_profit, rendement))
 
 
-# time for 20 shares : 2.54s
+# time for :
+# 20 shares :   2.54s    cost :     498.00€,    profits :     99.08€
+
 if __name__ == '__main__':
     loading_data('shares.csv')
 

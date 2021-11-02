@@ -84,9 +84,9 @@ def display_best(shares, budget):
         total_profit, rendement))
 
 # time for :
-# 20 shares :   0.63s   (cost : 498€, profits : 99.08€),
-# dataset1 :    29.9s   (cost : 499.96, profits : 198.54€),
-# dataset2 :    17.7s   (cost : 499.92€, profits : 197.96€).
+# 20 shares :   0.63s   cost :     498.00€,    profits :     99.08€,
+# dataset1 :    29.9s   cost :     499.96€,     profits :   198.54€,
+# dataset2 :    17.7s   cost :     499.92€,     profits :   197.96€.
 
 if __name__ == '__main__':
     loading_data('dataset1_Python+P7.csv')
