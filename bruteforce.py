@@ -8,14 +8,12 @@ def loading_data(file):
     shares = []
 
     for row in data:
+        if float(row['price']) > 0 and float(row['profit']) > 0:
+            price = float(row['price'])
+            profit = price * float(row['profit']) / 100
+            share = [row['name'], price, profit]
+            shares.append(share)
 
-        share = [row['name'], float(row['price']), float(row['price'])
-                 *float(row['profit'])]
-        shares.append(share)
-        # if len(shares)>3:
-        #     break
-
-    # print(len(shares))
     search_best_profit(shares, 500)
 
 
@@ -25,9 +23,12 @@ def search_best_profit(data, max_budget):
 
     # generating each unique permutation possible
     combinations = []
+
+    # need an empty list in combinations for starting the powerset
     if not combinations:
         starter_list = []
         combinations.append(starter_list)
+
     for item in data:
         sub_sets = [sub+[item] for sub in combinations]
         combinations.extend(sub_sets)

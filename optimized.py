@@ -7,12 +7,13 @@ def loading_data(file):
 
     shares = []
     for row in data:
-        price = float(row['price'])
-        profit = price * float(row['profit'])/100
-        # price*100 to only deal with int, profit *1000 to deal with int, and
-        # to avoid rounding errors.
-        share = [row['name'], int(price*100), int(profit*1000)]
-        shares.append(share)
+        if float(row['price']) > 0 and float(row['profit']) > 0:
+            price = float(row['price'])
+            profit = price * float(row['profit'])/100
+            # price*100 to only deal with int, profit *1000 to deal with int, and
+            # to avoid rounding errors.
+            share = [row['name'], int(price*100), int(profit*1000)]
+            shares.append(share)
     knapsack(shares, 500)
 
 
@@ -26,14 +27,14 @@ def knapsack(data, max_budget):
     shares= []
     best_shares = []
 
+    # data cleaning
     for share in data:
-        if share[1] > 0:
-            shares.append(share)
-            profits.append(abs(share[2]))
-            prices.append(abs(share[1]))
+        shares.append(share)
+        profits.append(share[2])
+        prices.append(share[1])
 
 
-    # knapsack algo
+    # knapsack dynamic programming algo
     n = len(profits)
     table = [[0 for _ in range(budget + 1)] for _ in range(n + 1)]
 
@@ -81,7 +82,12 @@ def display_best(shares, budget):
     print('\n Benefice total : {:.2f} €, rendement : {:.2f} %.'.format(
         total_profit, rendement))
 
-# time for 20 shares : 0.63s, dataset1 : 29.9s, dataset2 : 17.7s
+# time for :
+# 20 shares : 0.63s (99.08€),
+# dataset1 : 29.9s (198.54€),
+# dataset2 : 17.7s (197.96€).
+
 if __name__ == '__main__':
-    loading_data('dataset1_Python+P7.csv')
+    # loading_data('dataset1_Python+P7.csv')
+    loading_data('dataset2_Python+P7.csv')
     # loading_data('shares.csv')
