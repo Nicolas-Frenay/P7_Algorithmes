@@ -21,7 +21,7 @@ def search_best_profit(data, max_budget):
     budget_max = max_budget
     best_shares = []
 
-    # generating each unique permutation possible
+    # generating each unique combinaisons possible
     combinations = []
 
     # need an empty list in combinations for starting the powerset
@@ -37,7 +37,7 @@ def search_best_profit(data, max_budget):
     # profit functions
     combinations.pop(0)
 
-    # checking for each permutation if cost is under 500, then check if profits
+    # checking for each combinaisons if cost is under 500, then check if profits
     # is larger than actual best
     for shares in combinations:
         if get_price(shares) <= budget_max:

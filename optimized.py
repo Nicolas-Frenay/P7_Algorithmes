@@ -10,9 +10,10 @@ def loading_data(file):
         if float(row['price']) > 0 and float(row['profit']) > 0:
             price = float(row['price'])
             profit = price * float(row['profit'])/100
-            # price*100 to only deal with int, profit *1000 to deal with int, and
-            # to avoid rounding errors.
-            share = [row['name'], int(price*100), int(profit*1000)]
+            # price*100 to only deal with int,
+            # profit *1000 to deal with int, and to avoid rounding errors.
+            # price int(round) to avoid rounding error with cents.
+            share = [row['name'], int(round(price*100, 0)), int(profit*1000)]
             shares.append(share)
     knapsack(shares, 500)
 
@@ -83,11 +84,11 @@ def display_best(shares, budget):
         total_profit, rendement))
 
 # time for :
-# 20 shares : 0.63s (99.08€),
-# dataset1 : 29.9s (198.54€),
-# dataset2 : 17.7s (197.96€).
+# 20 shares :   0.63s   (cost : 498€, profits : 99.08€),
+# dataset1 :    29.9s   (cost : 499.96, profits : 198.54€),
+# dataset2 :    17.7s   (cost : 499.92€, profits : 197.96€).
 
 if __name__ == '__main__':
-    # loading_data('dataset1_Python+P7.csv')
-    loading_data('dataset2_Python+P7.csv')
+    loading_data('dataset1_Python+P7.csv')
+    # loading_data('dataset2_Python+P7.csv')
     # loading_data('shares.csv')
