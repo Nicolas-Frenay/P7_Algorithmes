@@ -26,7 +26,7 @@ def loading_data(file):
 
 def search_best_profit(data, max_budget):
     """
-    function to find the best shares combination
+    function that calculate the best set of shares for maximizing profits.
     :param data: list of shares : [name, price, profit]
     :param max_budget: int, max value to spend.
     :return: None, call display_best function
@@ -103,7 +103,7 @@ def display_best(shares, budget):
         print(share[0])
         total_profit += share[2]
     rendement = (total_profit / budget) * 100
-    print('\n Cout : {} €.'.format(budget))
+    print('\n Cout : {:.2f} €.'.format(budget))
     print('\n Benefice total : {:.2f} €,'
           ' rendement : {:.2f} %.'.format(total_profit, rendement))
 

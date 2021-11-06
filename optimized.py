@@ -32,7 +32,7 @@ def loading_data(file):
 
 def knapsack(data, max_budget):
     """
-
+    function that calculate the best set of shares for maximizing profits.
     :param data: list extract from csv file : [name, price, profit]
     :param max_budget: int, max value to spend.
     :return: None, call display_best function
@@ -118,7 +118,7 @@ def display_best(shares, budget):
         print(share[0])
         total_profit += share[2] / 1000
     rendement = (total_profit / budget) * 100
-    print('\n Cout : {} €.'.format(budget))
+    print('\n Cout : {:.2f} €.'.format(budget))
     print('\n Benefice total : {:.2f} €,'
           ' rendement : {:.2f} %.'.format(total_profit, rendement))
 
