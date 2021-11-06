@@ -113,17 +113,11 @@ def display_best(shares, budget):
 
 def main():
     """
-    Main function, user choose which file to analyse.
+    Main function, load the files containing 20 shares.
     :return: None, call loading_data function
     """
 
-    csv_files = glob("csv_files/*.csv")
-
-    for index, file in enumerate(csv_files):
-        print(index, file[10:])
-
-    sel = int(input("Entrez l'index du fichier à analyser : "))
-    loading_data(csv_files[sel])
+    loading_data('csv_files/shares.csv')
 
 
 if __name__ == '__main__':
