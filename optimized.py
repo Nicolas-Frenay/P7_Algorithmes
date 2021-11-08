@@ -42,7 +42,7 @@ def knapsack(data, max_budget):
     profits = []
     # weight
     prices = []
-    # limit, *100 for avoiding index error with float noumbers
+    # limit, *100 for avoiding index error with float numbers
     budget = int(max_budget * 100)
     best_shares = []
 

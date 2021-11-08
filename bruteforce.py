@@ -1,5 +1,4 @@
 import csv
-from glob import glob
 
 
 def loading_data(file):
